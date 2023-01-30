@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html', {
+	"title": "Оформиление заказа"
+})
+<body>
+	@@include('html/header.html', {})
+	<main class="page">
+		<div class="page__container _container">
+			<aside class="page__side">
+				<nav class="page__menu menu-page">
+					<div class="menu-page__header">
+						<div class="menu-page__title">Каталог товаров</div>
+						<div class="menu-page__burger">
+							<div class="menu-page__lines">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+					</div>
+					<div class="menu-page__body">
+						<ul class="menu-page__list">
+							<li>
+								<a href="" data-item="0" class="menu-page__link menu-page__link_parent">Беговые дорожки</a>
+							</li>
+							<li>
+								<a href="" data-item="1" class="menu-page__link menu-page__link_parent">Эллиптические тренажеры</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Велотренажеры</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Гребные тренажеры</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Вибромасажеры</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Теннисные столы</a>
+							</li>
+							<li>
+								<a href="" data-item="2" class="menu-page__link menu-page__link_parent">Баскетбол</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Массажные кресла</a>
+							</li>
+							<li>
+								<a href=""  data-item="3" class="menu-page__link menu-page__link_parent">Массажные столы</a>
+							</li>
+							<li>
+								<a href="" data-item="4" class="menu-page__link menu-page__link_parent">Сильвые тренажеры</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Батуты</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Детские горки</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Дачная мебель</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Уличные спортивные комплексы</a>
+							</li>
+							<li>
+								<a href="" class="menu-page__link">Акссесуры</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<div class="page__side-news news-side">
+					<a href="" class="news-side__title title-news">Новости</a>
+					<div class="news-side__items items-side">
+						<div class="items-side__item item-side">
+							<a href="" class="item-side__title title-item-side">Снижение цен на игровые площадки Jungle Gym</a>
+							<div class="item-side__body">
+								<div class="item-side__date"><span>12</span>авг</div>
+								<div class="item-side__text">Уважаемые покупатели! Мы рады сообщить вам
+									о снижении цены с 27 июля на детский игровой комплекс
+								</div>
+							</div>
+						</div>
+						<div class="items-side__item item-side">
+							<a href="" class="item-side__title title-item-side">Поступление батутов Eclipse!</a>
+							<div class="item-side__body">
+								<div class="item-side__date"><span>19</span>авг</div>
+								<div class="item-side__text">Уважаемые покупатели! Мы рады сообщить вам
+									о снижении цены с 27 июля на детский игровой комплекс
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="page__side-feedback feedback-side">
+					<div class="feedback-side__title title-news">Отзывы</div>
+					<div class="feedback-side__items">
+						<div class="feedback-side__item item-feedback" onclick="alert(`Leave review !`)">
+							<div class="item-feedback__row">
+								<a href="" class="item-feedback__title">Павел Никифоров</a>
+								<div class="item-feedback__date">12.09.2015</div>
+							</div>
+							<div class="item-feedback__body">
+								<div class="item-feedback__quote">”</div>
+								<div class="item-feedback__text">Ради экономии места в тренажерном 
+									зале приобрел многофункциональный 
+									силовой тренажер Life Gear. За такую 
+									небольшую стоимость и с такими 
+									возможностями, он просто не 
+									заменим.
+								</div>					
+							</div>
+						</div>
+						<div class="feedback-side__item item-feedback" onclick="alert(`Leave review !`)">
+							<div class="item-feedback__row">
+								<a href="" class="item-feedback__title">Степан Николаевич</a>
+								<div class="item-feedback__date">12.09.2022</div>
+							</div>
+							<div class="item-feedback__body">
+								<div class="item-feedback__quote">”</div>
+								<div class="item-feedback__text">Ради экономии места в тренажерном 
+									зале приобрел многофункциональный 
+									силовой тренажер Life Gear. За такую 
+									небольшую стоимость и с такими 
+									возможностями, он просто не 
+									заменим.
+								</div>					
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<div class="page__content">
+				<form action="#" class="page__search search-page">
+					<div class="search-page__select">
+						<div class="search-page__openSelect"></div>
+							<div class="search-page__title">
+								<span>Везде</span><span data-text ="Выбрано:"></span>
+							</div>
+						<div class="search-page__categories categoties-search">
+							<div class="categoties-search__row">
+								<div class="categoties-search__column">
+									<ul class="categoties-search__list">
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Беговые дорожки</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Эллиптические тренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Велотренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Гребные тренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Вибромасажеры</span>
+											</label>
+										</li>
+									</ul>
+								</div>
+								<div class="categoties-search__column">
+									<ul class="categoties-search__list">
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Беговые дорожки</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Эллиптические тренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Велотренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Гребные тренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Вибромасажеры</span>
+											</label>
+										</li>
+									</ul>
+								</div>
+								<div class="categoties-search__column">
+									<ul class="categoties-search__list">
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Беговые дорожки</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Эллиптические тренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Велотренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Гребные тренажеры</span>
+											</label>
+										</li>
+										<li>
+											<label class="categoties-search__checkbox checkbox">
+												<input type="checkbox" value="1" class="checkbox__input">
+												<span class="checkbox__text">Вибромасажеры</span>
+											</label>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="search-page__input">
+						<input type="text" autocomplete="off" name="form[]">
+					</div>
+					<button class="search-page__btn btn">Найти</button>
+				</form>
+				<nav class="page__navigation-pages navigation-pages">
+					<ul class="navigation-pages__list">
+						<li >
+							<a href="http://localhost:3000" class="navigation-pages__pages navigation-pages__pages_main">Главная</a>
+						</li>
+						<li>
+							<span class="navigation-pages__pages navigation-pages__pages_catalog">Корзина</span>
+						</li>
+					</ul>
+				</nav>
+				<div class="page__create-order create-order">
+					<div class="create-order__title order-title">Оформление заказа</div>
+					<div class="create-order__content content-tabs _tabs">
+						<nav class="content-tabs__lables lables-tabs">
+							<div class="lables-tabs__btn tabs__btn" data-tab="#tab_1">Быстрый заказ</div>
+							<div class="lables-tabs__btn tabs__btn" data-tab="#tab_2">Курьером по Киеву и Одессе</div>
+							<div class="lables-tabs__btn tabs__btn" data-tab="#tab_3">Доставка по области</div>
+						</nav>
+						<div class="lables-tabs__body body-tabs">
+							<div class="body-tabs__block" id="tab_1"></div>
+							<div class="body-tabs__block" id="tab_2"></div>
+							<div class="body-tabs__block" id="tab_3">
+								<form action="#" class="create-order__checkout-order checkout-order">
+									<table class="checkout-order__table">
+										<tr>
+											<td>Фамилия</td>
+											<td>
+												<input data-error="Ошибка" class="checkout-order__input" type="text" value="" name="form[]">
+											</td>
+											<td><span>*</span> Поля обязательные для заполнения</td>
+										</tr>
+										<tr>
+											<td>Имя:<span>*</span></td>
+											<td>
+												<input data-error="Ошибка" class="checkout-order__input" type="text" value="" name="form[]">
+											</td>
+											<td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, veritatis. Error, doloribus.</td>
+										</tr>
+										<tr>
+											<td>Отчество</td>
+											<td>
+												<input data-error="Ошибка" class="checkout-order__input" type="text" value="" name="form[]">
+											</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td class="checkout-order__checkbox checkbox">
+												<label>
+													<input data-error="Ошибка" class="checkout-order__input-check" type="checkbox" value="" name="form[]">
+													<div class="checkout-order__text">Подписаться на новости</div>
+												</label>
+											</td>
+											<td></td>
+										</tr>
+									</table>
+									<div class="checkout-order__title order-title">Ваш заказ</div>
+									<div class="checkout-order__info-order order-info">
+										<div class="order-info__image _ibg">
+											<img src="img/order/runwalker.jpg" alt="">
+										</div>
+										<div class="order-info__item-info">
+											<div class="order-info__name">BH Fitness F1 G6414V <span>Беговая дорожка</span></div>
+											<div class="order-info__price uah">64 990 </div>
+										</div>
+										<div class="order-info__increasing">
+											<div class="product__item-increase increase-item">
+												<div class="increase-item__arrow increase-item__arrow_left increase-item__minus"></div>
+												<div class="increase-item__quantity">
+													<input type="text" value="1" name="form[]">
+												</div>
+												<div class="increase-item__arrow increase-item__arrow_right increase-item__plus"></div>
+											</div>
+										</div>
+										<div class="order-info__amout-row">
+											<div class="order-info__label">Всего: </div>
+											<div class="order-info__price uah">64 990 </div>
+										</div>
+										<a href="#" class="order-info__delete-order"></a>
+									</div>
+									<div class="checkout-order__info-order order-info">
+										<div class="order-info__image _ibg">
+											<img src="img/order/runwalker.jpg" alt="">
+										</div>
+										<div class="order-info__item-info">
+											<div class="order-info__name">BH Fitness F1 G6414V <span>Беговая дорожка</span></div>
+											<div class="order-info__price uah">64 990 </div>
+										</div>
+										<div class="order-info__increasing">
+											<div class="product__item-increase increase-item">
+												<div class="increase-item__arrow increase-item__arrow_left increase-item__minus"></div>
+												<div class="increase-item__quantity">
+													<input type="text" value="1" name="form[]">
+												</div>
+												<div class="increase-item__arrow increase-item__arrow_right increase-item__plus"></div>
+											</div>
+										</div>
+										<div class="order-info__amout-row">
+											<div class="order-info__label">Всего: </div>
+											<div class="order-info__price uah">64 990 </div>
+										</div>
+									</div>
+									<div class="checkout-order__footer">
+										<div class="checkout-order__total-amount uah">ИТОГО: <span>120 000</span></div>
+										<button class="checkout-order__btn-complete" type="submit">Оформить заказ</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page__menu-options menu-options">
+			<div class="menu-options__container _container">
+				<div class="menu-options__row">
+					<div class="menu-options__line">
+						<div class="menu-options__label">Информация:</div>
+						<ul class="menu-options__list">
+							<li><a href="" class="menu-options__link">Бренды</a></li>
+							<li><a href="" class="menu-options__link">Доставка</a></li>
+							<li><a href="" class="menu-options__link">Распродажа</a></li>
+							<li><a href="" class="menu-options__link">Контакты</a></li>
+							<li><a href="" class="menu-options__link">Отзывы</a></li>
+						</ul>
+					</div>
+					<div class="menu-options__line">
+						<div class="menu-options__label">Помощь:</div>
+						<ul class="menu-options__list">
+							<li><a href="" class="menu-options__link">Как заказать</a></li>
+							<li><a href="" class="menu-options__link">Доставка</a></li>
+							<li><a href="" class="menu-options__link">Оплата</a></li>
+							<li><a href="" class="menu-options__link">Гарантия и сборка</a></li>
+							<li><a href="" class="menu-options__link">Возврат</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	@@include('html/footer.html', {})
+	<script src="js/app.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+.order-title {
+	font-size: 36px;
+	font-family: "UniSans";
+	font-weight: 900;
+	color: #dadada;
+}
+//===================================================================================
+.create-order {
+	margin: 28px 0 22px 0;
+	&__title {
+	}
+	&__checkout-order {
+		margin: 40px 0 0 0;
+	}
+	&__content {}
+}
+//===================================================================================
+.checkout-order {
+	&__title {}
+	&__info-order {
+		margin: 30px 0;
+		padding: 24px 14px 16px 22px;
+		border: 1px solid #f5f5f5;
+		@media (max-width:600px) {
+			padding: 15px 0;
+		}
+	}
+	&__footer {
+		text-align: right;
+	}
+	&__total-amount {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		font-size: 24px;
+		font-weight: 900;
+		color: #333;
+		span {
+			margin: 0 0 0 12px;
+			font-size: 36px;
+			font-weight: 900;
+			color: #f68038;
+		}
+		&:after {
+			margin: 0 0 0 10px;
+			font-size: 26px;
+			font-weight: 900;
+			color: #f68038;
+		}
+	}
+	&__btn-complete {
+		display: inline-block;
+		margin: 20px 0 0 0;
+		padding: 12px 20px 11px 19px;
+		font-weight: 900;
+		color: #fff;
+		border-radius: 30px;
+		background-color: #f68038;
+		text-transform: uppercase;
+		@media (min-width:$md1+px) {
+			&:hover {
+				color: #fff ;
+			}
+		}
+	}
+	&__table {
+		margin: 17px 0 50px 0;
+		width: 100%;
+		border-collapse: collapse;
+		padding: 20px;
+		td:nth-child(1) {
+			width: 20%;
+			text-align: left;
+		}
+		td {
+			span {
+				color: red;
+				display: inline;
+				font-weight: 900;
+			}
+			@media(max-width: 780px) {
+				&:last-child {
+					display: none;
+				}
+				padding: 10px 0 0 0;
+			}
+		}
+	}
+	&__input {
+		margin: 0 44px 0 0;
+		width: 216px;
+		border: solid 1px #e5e5e5;
+		padding: 5px;
+		@media(max-width: 780px) {
+			width: 100%;
+		}
+	}
+	&__checkbox {
+		label {
+			display: flex;
+			align-items: center;
+			padding: 17px 0 0 0;
+		}
+	}
+	&__input-check {
+		width: 0px;
+		height: 0px;
+		border: 0;
+		&:checked + .checkout-order__text:before {
+			background: yellow; // фото галочки быть должно
+		}
+	}
+	&__text {
+		margin: 0 15px 0 0;
+		display: inline-block;
+		font-size: 12px;
+		font-weight: 300;
+		color: #666;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			margin: 0 15px 0 0;
+			border: solid 1px #e5e5e5;
+			vertical-align: middle;
+		}
+	}
+}
+//===================================================================================
+.order-info {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	@media (max-width:600px) {
+		justify-content: center;
+	}
+	&__image {
+		width: 106px;
+		height: 100px;
+	}
+	&__item-info {
+		margin: 0 50px;
+	}
+	&__name {
+		font-size: 14px;
+		font-weight: 900;
+		color: #36949f;
+		span {
+			font-weight: 300;
+		}
+	}
+	&__price {
+		margin: 14px 0 0 0;
+		font-size: 24px;
+		font-weight: 900;
+		color: #333;
+	}
+	&__increasing {
+		@media (max-width:1160px) {
+			flex: 1 1 auto;
+		}
+		@media (max-width:668px) {
+			margin: 20px 0 0 0;
+		}
+	}
+	&__amout-row {
+		margin: 0 0 0 70px;
+		@media (max-width:1160px) {
+			display: none;
+		}
+	}
+	&__label {
+		font-size: 16px;
+		font-weight: 300;
+		color: #999;
+	}
+	&__price {
+		font-size: 24px;
+		font-weight: 900;
+		line-height: 1;
+	}
+	&__delete-order {
+		display: inline-block;
+		position: absolute;
+		right: 14px;
+		top: 24px;
+		width: 16px;
+		height: 16px;
+		background: url("../img/order/delete.png") right no-repeat;
+		@media (min-width:$md1+px) {
+			&:hover {
+				background: url("../img/order/delete-hover.png") right no-repeat;
+			}
+		}
+	}
+}
+//===================================================================================
+.content-tabs {
+	background: #fafafa;
+	margin: 22px 0 0 0;
+	&__lables {}
+	@media (min-width:700px) {
+		padding: 37px 45px;
+	}
+}
+.lables-tabs {
+	text-align: center;
+	&__btn {
+		padding: 0 5px;
+		font-weight: 900;
+		color: #72c9d4;
+		text-transform: uppercase;
+		border-bottom: 2px dashed #72c9d4;
+		cursor: pointer;
+		&._active {
+			padding: 20px 31px 19px 29px;
+			color: #fff;
+			background-color: #72c9d4;
+			border-bottom: 0;
+		}
+		&:not(:last-child) {
+			margin: 0 0 15px 0;
+		}
+		@media (min-width:1190px) {
+			margin: 0 32px 0 0;
+		}
+	}
+	&__body {}
+		@media (min-width:$md1+px) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+}
+.tabs {
+	&__btn {}
+}
+.body-tabs {
+	&__block {
+	}
+}
+//===================================================================================
+
+//===================================================================================
+.menu-options {
+	&__list {
+		li {
+			display: inline;
+		}
+	}
+}
+//===================================================================================

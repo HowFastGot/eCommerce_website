@@ -1,0 +1,941 @@
+//<Подключаем переменные>==============================================================
+@import "Variables";
+//</Подключаем переменные>==============================================================
+
+//-\<Подключаем файлы стилей>==============================================================
+@import "header";
+@import "forms";
+@import "UI";
+@import "home";
+@import "../../node_modules/swiper/swiper.scss";
+@import "footer";
+@import "catalog";
+@import "product";
+@import "cart";
+
+//-</Подключаем файлы стилей>==============================================================
+
+//<Подключаем шрифты>=================================================================================================
+//&display=swap - оптимизация латиницы
+//&subset=cyrillic-ext - оптимизация кирилици
+@import "fonts"; //ипорт локально
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+//</Подключаем шрифты>=================================================================================================
+
+//-<Иконочные шрифты>-==============================================================
+// @import "icons";
+//-</Иконочные шрифты>-==============================================================
+
+//-<Обнуление общиих параметров>-===================================================
+@import "nullStyle";
+	body {
+		font-family: $font-family;
+		color: #000;
+		font-size: 14px;
+		&._lock {
+			overflow: hidden;
+		}
+	}
+//-<Обнуление общие параметры>-===================================================
+
+//<оболочка Wrapper>-========================================================================
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	width: 100%;
+}
+//</Wrapper>-========================================================================
+
+//-<Ограничивающий контейнер>==================================================================
+._container {
+	position: relative;
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+//-</Ограничивающий контейнер>==================================================================
+
+//-<Основная сетка>==================================================================
+.page {
+	flex: 1 1 auto;
+	margin-top: 150px;
+	&__container {
+		@media (min-width: 992px) {
+			display: flex;
+		}
+	}
+	&__side {
+		align-self: flex-start;
+		justify-self: start;
+		flex: 0 0 260px;
+		@media (min-width: $md2+px) {
+			margin-bottom: 20px;
+		}
+		@media (max-width: 550px) {
+			margin: -80px 0 0 0;
+		}
+	}
+	&__menu {}
+	&__content {
+		min-width: 0; //что бы слайдер не ломался, ставим для flex елемента 
+		margin: 0 0 50px 0;
+		@media (min-width: 992px) {
+			align-items: flex-start;
+			flex: 1 1 auto;
+			padding:0 0 0 30px;
+		}
+	}
+	&__search {
+		position: relative;
+		z-index: 3;
+		@media(max-width: $md2+px) {
+			margin: 10px 0 0 0;
+		}
+	}
+	&__mainslider {
+		margin: 22px 0 70px 0;
+	}
+	&__side-news {
+		margin: 40px 0 0 0 ;
+		@media(max-width: $md2+px) {  //нужно добавить динамический адаптив
+			display: none;
+		}
+	}
+	&__side-feedback {
+		margin: 76px 0 0 0;
+		@media(max-width: $md2+px) { //нужно добавить динамический адаптив
+			display: none;
+		}
+	}
+	&__products-swiper {}
+	&__brands {
+		margin: 0 0 30px 0;
+	}
+	&__text {
+		margin: 0 0 38px 0;
+	}
+	&__menu-options {
+		margin: 0 0 38px 0;
+	}
+	&__filter {
+		margin: 20px 0 0 0;
+	}
+	&__navigation-pages {
+		margin: 36px 0 30px 0;
+		overflow: auto;
+	}
+	&__catalog {}
+	&__pagination {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 15px;
+		margin: 15px 0 23px 0;
+		border-bottom: 1px solid #ededed;
+		border-top: 1px solid #ededed;
+		&:last-child {
+			margin: 28px 0 23px 0;
+		}
+	}
+	&__products {}
+	&__product {}
+	&__create-order {}
+}
+//===================================================================================
+.menu-page {
+	background: #14c0d4;
+	&__header {
+		display: flex;
+		padding: 20px;
+		align-items: center;
+		@media (max-width: 550px) {
+			padding: 10px;
+			margin-top: -0px;
+		}
+	}
+	&__title {
+		flex: 1 1 auto;
+		font-size: 30px;
+		font-weight: 900;
+		line-height: 35px;
+		letter-spacing: 0.75px;
+		font-family: "UniSans";
+		color: #fff;
+		@media (max-width: $md4+px) {
+			font-size: 20px;
+			line-height: 25px;
+		}
+	}
+	&__burger {
+		position: relative;
+		z-index: 5;
+		flex: 0 0 36px;
+		height: 36px;
+		padding: 10px 6px 10px 6px;
+		cursor: pointer;
+		background: #068292;
+		span {
+			position: absolute;
+			top: 0px;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background: #fff;
+			transition: all .4s ease 0s;
+			&:nth-child(2) {
+				top: 50%;
+				transform:translate(0,-50%)
+			}
+			&:last-child {
+				top: calc(100% - 1px);
+			}
+		}
+		&._active {
+			span {
+				transform: scale(0);
+				&:nth-child(1) {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:nth-child(2) {
+					bottom: 50%;
+					transform: rotate(45deg) translateY(-50%);
+				}
+			}
+		}
+	}
+	&__lines {
+		height: 16px;
+		position: relative;
+	}
+	&__body {
+		display: none;
+		transition: all .3s ease 0s;
+		&._active {
+			display: block;
+		}
+	}
+	&__list {
+		width: 100%;
+		li {
+			width: 100%;
+			border-bottom: 1px solid #1aa7b9;
+			@media (min-width: $md2+px) {
+				&:hover {
+					background-color: #098494;
+				}
+			}
+		}
+	}
+	&__link {
+		position: relative;
+		display: block;
+		padding: 12px 20px;
+		font-size: 12px;
+		font-weight: 300;
+		letter-spacing: .3px;
+		color: #fff;
+		&_parent {
+			&:after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				right: 10px;
+				width: 14px;
+				height: 14px;
+				background: url("../img/menu-arrow.png") left no-repeat;
+			}
+		}
+	}
+	&__submenu {}
+}
+//===================================================================================
+.submenu-page {}
+//===================================================================================
+.search-page {
+	display: flex;
+	position: relative;
+	flex-wrap: wrap;
+	@media (max-width:450px) {
+			margin: 10px 0 0 0;
+		}
+	&__openSelect {
+		background: #000;
+		position: absolute;
+		z-index: 5;
+		top: 0;
+		left: 0;
+		width: 126px;
+		height: 38px;
+		opacity: 0;
+		@media (max-width:420px) {
+			
+		}
+	}
+	&__select {
+		display: flex;
+		padding: 0 14px;
+		align-items: center;
+		justify-content: center;
+		background-color: #f3f3f3;
+		cursor: pointer;
+		@media (max-width: 450px) {
+			justify-content: flex-start;
+			padding: 0 0 0 5px;
+		}
+		&:before {
+			content: "";
+			width: 17px;
+			height: 17px;
+			padding: 0 30px 0 0;
+			background: url("../img/zoomPage.png") left no-repeat;
+			@media (max-width:420px) {
+				display: none;
+			}
+		}
+		&:after {
+			content: "";
+			width: 19px;
+			height: 19px;
+			margin: 0 0 0 12px;
+			text-align: center;
+			background: #f3f3f3 url("../img/menu-arrow.png") left no-repeat;
+		}
+		&._active:after {
+			transform: rotate(90deg) translate(0, 5px);
+		}
+	}
+	&__title {
+		color: #666;
+		font-family: "Roboto";
+		font-weight: 300;
+		span {
+			border-bottom: 1px dashed #999;
+			&:last-child {
+				display: none;
+			}
+		}
+		@media (max-width:450px) {
+			padding: 10px 0;
+		}
+	}
+	&__categories {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+	}
+	&__input {
+		flex: 1 1 auto;
+		border-top: 2px solid #f2f2f2;
+		border-bottom: 2px solid #f2f2f2;
+		@media (max-width:450px) {
+			border: 2px solid #f2f2f2;
+		}
+	}
+	&__btn {
+		font-size: 12px;
+		font-family: "Roboto";
+		font-weight: 900;
+		color: #fff;
+		text-transform: uppercase;
+		@media (max-width:450px) {
+			flex: 0 0 100%;
+		}
+	}
+	&._active &__title {
+		span {
+			&:first-child {
+				display: none;
+			}
+			&:last-child {
+				display: block;
+			}
+		}
+	}
+}
+//===================================================================================
+.categoties-search {
+	display: none;
+	background: #fff;
+	border: 1px solid #f3f3f3;
+	&:after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 4px;
+		background: orange;
+	}
+	&__row {
+		width: 100%;
+		@media (min-width: 568px) {
+			display: flex;
+			justify-content: center;
+		}
+	}
+	&__column {
+		flex: 1 1 33.333%;
+		padding: 20px 40px;
+		border-right: 1px solid #f3f3f3;
+		&:last-child {
+			border-right: 0;
+		}
+		@media (max-width: 768px) {
+			padding: 10px;
+		}
+	}
+	&__list {
+		li:not(:last-child) {
+			margin: 0 0 20px 0;
+		}
+		@media (max-width: 768px) {
+			text-align: center;
+		}
+	}
+}
+//===================================================================================
+.checkbox {
+	&__input {
+		&:checked + .checkbox__text {
+			color: orange;// фото галочки быть долно
+		}
+	}
+	&__text {
+		color: #999;
+		font-size: 12px;
+		font-weight: 300;
+		&:before {
+			display: none;
+		}
+		@media (max-width: 568px) {
+			font-size: 16px;
+		}
+	}
+}
+//===================================================================================
+.title-news {
+	font-size: 30px;
+	font-weight: 900;
+	font-family: "UniSans";
+	text-transform: uppercase;
+	color: lightgrey;
+	transition: all .3s ease 0s;
+	&:hover {
+		color: #1ab9ce;
+	}
+}
+.title-item-side {
+	font-size: 12px;
+	font-weight: 900;
+	font-family: "Roboto";
+	line-height: 1.5;
+	color: #000;
+	transition: all .3s ease 0s;
+	&:hover {
+		color: #fd8322;
+		text-decoration: underline;
+	}
+}
+.news-side {
+	&__title {
+		display: inline-block;
+	}
+	&__items {
+
+	}
+}
+
+.items-side {
+	&__item {
+		padding: 35px 0;
+		&:last-child {
+			padding: 0;
+		}
+	}
+}
+.item-side {
+	&__title {
+		display: inline-block;
+		padding: 0 22px 22px 0 ;
+	}
+	&__body {
+		display: flex;
+	}
+	&__date {
+		flex: 0 0 45px;
+		font-size: 18px;
+		font-weight: 300;
+		font-family: "Roboto";
+		color: #d8d8d8;
+		span {
+			display: block;
+		}
+	}
+	&__text {
+		font-size: 12px;
+		font-weight: 300;
+		line-height: 1.5;
+		font-family: "Roboto";
+		color: #6666;
+	}
+}
+//===================================================================================
+.feedback-side {
+	&__title {}
+	&__items {
+		margin: 32px 0 ;
+	}
+	&__item {
+		&:last-child {
+			margin: 39px 0 0 0;
+		}
+		&:hover {
+			cursor: pointer;
+			.item-feedback__title {
+				color: #1ab9ce;
+			}
+			.item-feedback__date {
+				color: #1ab9ce;
+			}
+			.item-feedback__body {
+				background: #1ab9ce;
+			}
+			.item-feedback__quote {
+				color: #fff;
+			}
+			.item-feedback__text {
+				color: #fff;
+			}
+		}
+	}
+}
+//===================================================================================
+.item-feedback {
+	&__row {
+		display: flex;
+	}
+	&__title {
+		flex: 1 1 auto;
+		font-size: 12px;
+		font-weight: 900;
+		font-family: "Roboto";
+		line-height: 1.5;
+		color: #000;
+		transition: all .3s ease 0s;
+	}
+	&__date {
+		font-size: 12px;
+		font-weight: 300;
+		line-height: 1.5;
+		color: #999;
+		transition: all .3s ease 0s;
+	}
+	&__body {
+		display: flex;
+		margin: 20px 0 0 0;
+		gap: 10px;
+		transition: all .3s ease 0s;
+	}
+	&__quote {
+		flex: 0 0 26px;
+		font-size: 48px;
+		font-weight: 900;
+		font-family: "Roboto";
+		color: #dadada;
+		transition: all .3s ease 0s;
+	}
+	&__text {
+		font-size: 12px;
+		font-weight: 300;
+		line-height: 1.5;
+		font-family: "Roboto";
+		color: #6666;
+		margin: 0 0 0 0;
+	}
+}
+//==================================================================================
+.swiper-products {
+	&__header {
+		margin: 0 0 30px 0;
+		@media (min-width:$md3+px) {
+			display: flex;
+			align-items: center;
+		}
+	}
+	&__items {
+	}
+	&__item {
+		position: relative;
+		overflow: hidden;
+	}
+}
+.header-products {
+	&__title {
+		flex: 1 1 auto;
+		font-size: 36px;
+		font-weight: 900;
+		font-family: "UniSans";
+		letter-spacing: .9;
+		text-transform: uppercase;
+		color: #dadada;
+	}
+	&__navigation {
+		display: flex;
+		align-items: center;
+		@media (max-width:$md3+px) {
+			margin: 10px 0 0 0;
+		}
+	}
+	&__arrow {
+		&_prev {
+			width: 33px;
+			height: 30px;
+			background: url("../img/productsSwiper/ArrowLeft.png") 0px 0/contain no-repeat;
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+		&_next {
+			width: 33px;
+			height: 30px;
+			background: url("../img/productsSwiper/ArrowLeft.png") 0px 0/contain no-repeat;
+			transform: rotate(180deg);
+			&:hover {
+				transform: scale(1.1) rotate(180deg);
+			}
+		}
+	}
+	&__info {
+		padding: 0 20px;
+		font-weight: 500;
+		color: #999;
+		letter-spacing: 0.35px;
+		.swiper-pagination-current {
+			font-size: 20px;
+			font-weight: 900;
+			letter-spacing: 0.75px;
+			color: #333;
+			@media (max-width:$md4+px) {
+				font-size: 16px;
+			}
+		}
+		@media (max-width:$md4+px) {
+			padding: 0 10px;
+		}
+	}
+}
+//===================================================================================
+.item-swiper {
+	&__wrapper {}
+	&__slide {}
+}
+.items-products {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+	&__column {
+		position: relative;
+		flex: 0 1 33.33%;
+		padding: 0px 15px 30px;
+		@media (min-width:$md1+px) {
+			&:hover {
+				.item-products__hover {
+					display: block;
+				}
+				.item-products__footer {
+					display: none;
+				}
+				.item-products__title {
+					display: none;
+				}
+			}
+		}
+		@media (max-width:$md1+px) {
+			flex: 0 1 50%;
+		}
+		@media(max-width: 550px) {
+			flex: 1 1 100%;
+			text-align: center;
+		}
+	}
+	&__item {
+		position: relative;
+		height: 100%;
+		padding: 40px 11px 0 20px;
+		border: 1px solid #f5f5f5;
+		content-box: content-box;
+	}
+}
+//===================================================================================
+.item-products {
+	&__title {
+		font-size: 16px;
+		font-weight: 900;
+		line-height: 1.38;
+		color: #36949f;
+		span {
+			display: block;
+			font-weight: 300;
+		}
+	}
+	&__image {}
+	&__body {}
+	&__footer {
+		position: relative;
+		display: flex;
+		padding: 0 11px;
+		margin: 30px 0 15px 0;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__add {}
+	&__price {
+		font-size: 24px;
+		font-weight: 900;
+		line-height: 1;
+		color: #333;
+		font-family: "Roboto";
+	}
+	&__oldPrice {
+		position: absolute;
+		right: 10px;
+		top: 0;
+		margin: -10px 0 0 0;
+		font-size: 18px;
+		font-weight: 300;
+		text-decoration: line-through;
+		color: #999;
+	}
+	&__hover {
+		display: none;
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, .8);
+		transition: all 0.3s ease 0s;
+		border: 5px solid #f68038;
+	}
+}
+//===================================================================================
+.hover-items-products {
+	&__title {
+		padding: 25px 0 0 25px;
+		font-size: 16px;
+		font-weight: 900;
+		line-height: 1.38;
+		color: #fff;
+		span {
+			display: block;
+			color: #c2c2c2;
+			font-weight: 300;
+		}
+	}
+	&__options {
+		padding: 29px 0px 0px 27px;
+	}
+	&__cart {
+		display: block;
+		margin: 0 auto !important;
+		width: 56px;
+		height: 56px;
+		text-align: center;
+		img {
+			width: 100%;
+		}
+	}
+	&__footer {
+		position: relative;
+		display: flex;
+		margin: 40px 0 0 0;
+		padding: 0 10px;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__oldPrice {
+		position: absolute;
+		right: 20px!important;
+		top: 0 !important;
+		margin: -14px 0 0 0;
+		font-size: 18px;
+		font-weight: 300;
+		text-decoration: line-through;
+		color: #999;
+	}
+	&__stoke {
+		display: inline-block;
+		padding: 7px 10px 6px 11px;
+		font-size: 14px;
+		font-weight: 300;
+		color: orange;
+		background: #fff;
+		border-radius: 15px;
+	}
+	&__price {
+		font-size: 24px;
+		font-weight: 900;
+		line-height: 1;
+		color: white;
+		font-family: "Roboto";
+	}
+}
+.hover-options-item {
+	&:not(:first-child) {
+		color: #fff;
+	}
+	span {
+		display: block;
+		line-height: 1;
+		font-weight: 900;
+		color: orange;
+	}
+	&_type {
+		padding: 0 0 10px 0;
+	}
+	&_speed {
+		padding: 0 0 10px 0;
+	}
+	&_stoke {
+		padding: 0 0 27px 0;
+	}
+}
+//===================================================================================
+.brands-page {
+	border-top: 3px dashed #dadada;
+	border-bottom: 3px dashed #dadada;
+	padding: 25px 0px;
+	&__container {
+		position: relative;
+	}
+	&__swiper {
+		margin: 0 40px;
+	}
+	&__wrapper {
+		display: flex;
+		align-items: center;
+	}
+	&__slide {
+		text-align: center;
+		padding: 0 10px;
+		cursor: pointer;
+		img {
+			max-width: 100%;
+			@extend %graystyleON;
+			transition: all 0.3s ease 0s;
+			&:hover {
+				@extend %graystyleOFF;
+			}
+		}
+	}
+	&__arrow-left {
+		position: absolute;
+		left: 10px;
+		top: 50%;
+		transform: translate(0, -50%);
+		width: 27px;
+		height: 23px;
+		cursor: pointer;
+		background: url("../img/brands/ArrowLeft.png") left 0/cover no-repeat;
+		@media (min-width:$md1+px) {
+			&:hover {
+				background: url("../img/brands/ArrowRight2.png") 0 0/cover no-repeat;
+				transform: translate(0, -50%) rotate(180deg) ;
+			}
+		}
+	}
+	&__arrow-right {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		right: 10px;
+		width: 27px;
+		height: 23px;
+		transform: translate(0, -50%) rotate(180deg);
+		background: url("../img/brands/ArrowLeft.png") 0 0/cover no-repeat;
+		transform: rotate(180deg) translateY(50);
+		@media (min-width:$md1+px) {
+			&:hover {
+				background: url("../img/brands/ArrowRight2.png") 0 0/cover no-repeat;
+				transform: rotate(0deg) translateY(-55%);
+			}
+		}
+	}
+}
+.brands-page__swiper {
+	overflow: hidden;
+}
+//===================================================================================
+.menu-options {
+	padding: 25px 0;
+	border-top: 3px dashed #dadada;
+	border-bottom: 3px dashed #dadada;
+	@media(max-width: $md3+px) {
+		padding: 10px 0;
+	}
+	&__container {}
+	&__row {
+		display: inline-block;
+		@media (max-width:550px) {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+	}
+	&__line {
+		@media (min-width: 550px) {
+			display: flex;
+			&:not(:last-child) {
+				padding: 0 0 14px 0;
+				margin: 0 0 15px 0;
+				border-bottom: 1px solid #b0b0b0;
+			}
+		}
+		@media (max-width:550px) {
+			flex: 0 0 50%;
+
+		}
+	}
+	&__label {
+		margin: 0 30px 0 0;
+		font-weight: 900;
+		letter-spacing: 0.35px;
+		color: #333;
+		@media (max-width:550px) {
+			margin: 0 0 10px 0;
+			text-align: center;
+		}
+	}
+	&__list {
+		li:not(:last-child) {
+			@media (min-width:550px) {
+				display: inline-flex;
+				margin: 0 30px 0 0;
+			}
+		}
+		@media (max-width:550px) {
+			li {
+				margin: 0 0 10px 0;
+				text-align: center;
+			}
+		}
+	}
+	&__link {
+		font-size: 12px;
+		font-weight: 300;
+		color: #1ab9ce;
+		transition: all 0.3s ease 0s;
+		@media (min-width:$md1+px) {
+			&:hover {
+				color: #000;
+			}
+		}
+	}
+}
+//===================================================================================
+//-<Основная сетка>==================================================================
